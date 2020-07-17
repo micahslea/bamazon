@@ -50,7 +50,7 @@ function start() {
                     console.log(
                       "You have ordered " +
                         units.quantity +
-                        "s  of a " +
+                        " units  of a " +
                         name +
                         ".\n Your total is $" +
                         total.toFixed(2)

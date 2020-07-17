@@ -134,7 +134,6 @@ function addInventory() {
                   function (err, res) {
                     if (err) throw err;
                     console.log(res.affectedRows + " record(s) updated");
-                    res.end();
                   }
                 );
               }
@@ -168,7 +167,7 @@ function addNewProduct() {
               message: "What is the price for this product?",
             })
             .then(function (results) {
-              var price = parseInt(results.price);
+              var price = parseFloat(results.price);
               inquirer
                 .prompt({
                   name: "quantity",
@@ -178,6 +177,7 @@ function addNewProduct() {
                 })
                 .then(function (data) {
                   var quantity = parseInt(data.quantity);
+
                   connection.query(
                     "INSERT INTO products (product_name, department_name, price, stock_quantity) VALUES ('" +
                       productName +
